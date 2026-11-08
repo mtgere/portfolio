@@ -51,7 +51,20 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
 .nav ul a{font-size:15px;font-weight:500;color:var(--muted);text-decoration:none}
 .nav ul a:hover{color:var(--fg)}
-@media (max-width:860px){.nav ul{display:none}}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.menu-btn{display:none;font:inherit;font-size:15px;font-weight:600;color:var(--fg);background:transparent;border:1px solid #5d5d5a;border-radius:999px;padding:9px 16px;cursor:pointer}
+.to-top{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:48px;height:48px;border-radius:50%;border:0;background:var(--accent);color:var(--ink);font-size:20px;font-weight:700;display:none;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+@media (max-width:860px){
+  .menu-btn{display:inline-flex}
+  .nav ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:14px 0;font-size:20px;color:var(--fg);border-top:1px solid var(--line)}
+  .nav ul li:first-child a{border-top:0}
+  .nav .wrap{position:relative}
+  .to-top.show{display:flex}
+}
+@media (max-width:480px){.nav-actions .btn{display:none}}
+
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:600;font-size:16px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn.primary{background:var(--accent);color:var(--ink)}
@@ -103,6 +116,7 @@ section.block{padding-block:88px}
 .featured .over{position:absolute;inset:auto 0 0 0;padding:120px 40px 34px;background:linear-gradient(to bottom,rgba(10,10,10,0),rgba(10,10,10,.78) 55%,rgba(10,10,10,.94));display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
 .featured h3{font-size:clamp(26px,3.6vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.05;margin-top:8px}
 .featured .role{font-size:17px;font-weight:500}
+.featured .role u{color:var(--accent);text-underline-offset:4px}
 @media (max-width:600px){.featured img{aspect-ratio:4/3;object-position:50% 20%}.film div{flex-direction:column;align-items:flex-start;gap:2px}.featured .over{padding:80px 20px 22px}}
 
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px;margin-top:48px}
@@ -196,13 +210,17 @@ footer a{text-decoration:none}
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">MANUEL TORRES GERE</a>
-    <ul>
+    <ul id="nav-links">
       <li><a href="#trabajos">Trabajos</a></li>
       <li><a href="#trayectoria">Trayectoria</a></li>
       <li><a href="#nakatomi">Nakatomi</a></li>
       <li><a href="#reconocimientos">Reconocimientos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <a class="btn primary small" href="#contacto">Conversemos</a>
+    <div class="nav-actions">
+      <a class="btn primary small" href="#contacto">Conversemos</a>
+      <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menú</button>
+    </div>
   </div>
 </header>
 
@@ -276,16 +294,16 @@ footer a{text-decoration:none}
       </div>
 
       <div class="card" data-cat="marcas" style="display:block">
-        <div class="featured">
+        <a class="featured" href="https://www.figma.com/proto/jPDRtBRDw6Kbua1VQwrrGN/Portfolio-Manu-Torres-2026?node-id=6-41&starting-point-node-id=5%3A2&scaling=contain&hide-ui=1" target="_blank" rel="noopener">
           <img src="img/sv_kv.jpg" alt="Afiches y producto de la campaña Semana del Vermú de Cinzano" width="1800" height="1012">
           <div class="over">
             <div>
               <p class="label">Destacado · Cinzano · Febrero (ex Mutato) · 2024</p>
               <h3>Semana del Vermú &amp; Haciendo Clásicos</h3>
             </div>
-            <span class="role">Director de Proyectos</span>
+            <span class="role">Director de Proyectos · <u>Ver caso ↗</u></span>
           </div>
-        </div>
+        </a>
       </div>
 
       <div class="grid">
@@ -304,10 +322,11 @@ footer a{text-decoration:none}
           <a class="more" href="https://www.youtube.com/watch?v=rgvmI0uCBwM" target="_blank" rel="noopener">Ver caso ↗</a>
         </article>
         <article class="card" data-cat="gobierno">
-          <div class="thumb"><img src="img/obelisco.jpg" alt="Cobertura desde el Obelisco para @buenosaires" style="object-position:center 22%" loading="lazy"></div>
+          <a class="thumb" href="https://www.instagram.com/buenosaires/" target="_blank" rel="noopener"><img src="img/obelisco.jpg" alt="Cobertura desde el Obelisco para @buenosaires" style="object-position:center 22%" loading="lazy"></a>
           <p class="label">GCBA · 2017–2021 · 2022–2023</p>
           <h3>@buenosaires</h3>
           <p>Contenido digital, coberturas y transmisiones en vivo para la cuenta oficial de la Ciudad.</p>
+          <a class="more" href="https://www.instagram.com/buenosaires/" target="_blank" rel="noopener">Ver cuenta ↗</a>
         </article>
         <article class="card" data-cat="gobierno">
           <a class="thumb" href="https://www.youtube.com/watch?v=X2exn1qn9qc" target="_blank" rel="noopener"><img src="img/barrio31.jpg" alt="Vista aérea del Barrio Padre Carlos Mugica" loading="lazy"></a>
@@ -413,12 +432,18 @@ footer a{text-decoration:none}
   </section>
 </main>
 
+<a class="to-top" id="to-top" href="#top" aria-label="Volver arriba">↑</a>
 <footer>
   <div class="wrap"><span>© 2026 Manuel Torres Gere</span><a href="#top">Volver arriba ↑</a></div>
 </footer>
 
 <script>
 (function(){
+  var mb=document.getElementById('menu-btn'),nl=document.getElementById('nav-links');
+  if(mb&&nl){mb.addEventListener('click',function(){var o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));mb.textContent=o?'Cerrar':'Menú'});
+    nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menú'})});}
+  var tt=document.getElementById('to-top');
+  if(tt){var onS=function(){tt.classList.toggle('show',window.scrollY>900)};window.addEventListener('scroll',onS,{passive:true});onS();}
   var chips=document.querySelectorAll('.chip');
   var items=document.querySelectorAll('#trabajos .card');
   chips.forEach(function(c){c.addEventListener('click',function(){
