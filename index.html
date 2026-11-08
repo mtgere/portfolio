@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manuel Torres Gere</title>
+<meta name="description" content="Consultor en Comunicación Digital. Comunicación política, marcas y estrategia digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<meta name="author" content="Manuel Torres Gere">
+<meta name="theme-color" content="#141414">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manuel Torres Gere · Consultor en Comunicación Digital">
+<meta property="og:description" content="Comunicación política, marcas y estrategia digital. Trabajos, trayectoria y contacto.">
+<meta property="og:image" content="img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+/* Layout: dark editorial one-pager, 1280 max column, big Inter Bold display, coral accent — mirrors the Figma portfolio */
+:root{
+  --bg:#141414; --surface:#222222; --fg:#f3f3f1; --muted:#8f8f8a; --line:#3a3a38;
+  --accent:#ff5a36; --paper:#f3f3f1; --ink:#141414; --white:#ffffff;
+  --display:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:900px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.label{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+.label.muted{color:var(--muted)}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+.display{font-weight:700;letter-spacing:-.045em;line-height:.9}
+.muted{color:var(--muted)}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+
+/* NAV */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+.brand{font-size:13px;font-weight:600;letter-spacing:.12em;text-decoration:none;white-space:nowrap}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{font-size:15px;font-weight:500;color:var(--muted);text-decoration:none}
+.nav ul a:hover{color:var(--fg)}
+@media (max-width:860px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:600;font-size:16px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:var(--ink)}
+.btn.ghost{border-color:#5d5d5a;color:var(--fg)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn.small{padding:10px 18px;font-size:15px}
+
+/* HERO */
+.hero{padding-block:64px 40px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px;align-items:start}
+.hero h1{font-size:clamp(48px,7.4vw,108px);margin-top:20px}
+.hero p.lead{font-size:clamp(18px,1.6vw,22px);color:var(--muted);max-width:40ch;margin:28px 0 36px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.portrait{margin:0;justify-self:end;width:100%;max-width:400px}
+.portrait img{display:block;width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:24px;max-width:100%}
+.portrait figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:56px}
+.fact{border-top:1px solid var(--line);padding-top:18px;min-width:0}
+.fact b{display:block;font-size:clamp(30px,3.4vw,44px);font-weight:700;letter-spacing:-.04em;line-height:1.1}
+.fact:first-child b{color:var(--accent)}
+.fact span{font-size:15px;color:var(--muted)}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:360px;justify-self:start}.facts{grid-template-columns:1fr;gap:0}.fact{padding-block:16px}}
+
+/* MARQUEE */
+.marquee{background:var(--accent);color:var(--ink);overflow:hidden;white-space:nowrap;padding-block:22px}
+.marquee .track{display:inline-flex;gap:28px;font-weight:700;font-size:clamp(20px,2.2vw,30px);letter-spacing:-.01em;animation:mq 38s linear infinite;padding-left:28px}
+.marquee span.star{opacity:.75}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee .track{animation:none}}
+
+/* SECTIONS */
+section.block{padding-block:88px}
+.statement{font-size:clamp(28px,3.8vw,52px);font-weight:500;letter-spacing:-.025em;line-height:1.15;max-width:24ch;margin:18px 0 0}
+.pillars{font-size:clamp(22px,2.6vw,34px);font-weight:600;letter-spacing:-.02em;margin:14px 0 0}
+.pillars i{font-style:normal;color:var(--accent);padding:0 .35em}
+.brands{display:grid;gap:12px;margin-top:16px}
+.brands p{margin:0;font-size:18px;font-weight:600;min-width:0}
+.brands p em{font-style:normal;font-weight:400;color:var(--muted);margin-right:14px}
+.stack{display:grid;gap:44px}
+
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.sec-head h2{font-size:clamp(48px,7.6vw,110px)}
+.filters{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:inherit;font-size:15px;font-weight:500;color:var(--fg);background:transparent;border:1px solid #5d5d5a;border-radius:999px;padding:9px 18px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+
+.featured{position:relative;display:block;margin-top:40px;border-radius:28px;overflow:hidden;text-decoration:none}
+.featured img{display:block;width:100%;aspect-ratio:1280/600;object-fit:cover;object-position:center 15%;max-width:100%}
+.featured .over{position:absolute;inset:auto 0 0 0;padding:120px 40px 34px;background:linear-gradient(to bottom,rgba(10,10,10,0),rgba(10,10,10,.78) 55%,rgba(10,10,10,.94));display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
+.featured h3{font-size:clamp(26px,3.6vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.05;margin-top:8px}
+.featured .role{font-size:17px;font-weight:500}
+@media (max-width:600px){.featured img{aspect-ratio:4/3}.featured .over{padding:80px 20px 22px}}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px;margin-top:48px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .thumb{display:block;border-radius:20px;overflow:hidden;background:var(--surface)}
+.card .thumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .4s ease;max-width:100%}
+.card:hover .thumb img{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.card .thumb img{transition:none}.card:hover .thumb img{transform:none}}
+.card .label{font-size:12px;margin-top:8px}
+.card h3{font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.card p{margin:0;font-size:16px;color:var(--muted)}
+.more{font-size:16px;font-weight:600;color:var(--accent);text-underline-offset:4px;margin-top:4px;width:max-content}
+.card[hidden]{display:none!important}
+
+.films{margin-top:72px;border-top:1px solid var(--line);padding-top:28px}
+.film-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:24px}
+@media (max-width:900px){.film-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.film img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px;max-width:100%}
+.film div{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-top:12px}
+.film b{font-size:20px}
+.film a{font-size:15px;font-weight:600;color:var(--accent);text-underline-offset:4px;white-space:nowrap}
+
+/* TRAYECTORIA */
+.tl{width:100%;border-collapse:collapse;margin-top:40px}
+.tl td{border-top:1px solid var(--line);padding:18px 16px 18px 0;vertical-align:baseline}
+.tl tr:last-child td{border-bottom:1px solid var(--line)}
+.tl .yr{font-weight:700;font-size:22px;width:100px;font-variant-numeric:tabular-nums}
+.tl .co{font-weight:600;font-size:22px}
+.tl .co small{font-weight:400;font-size:15px;color:var(--muted);margin-left:8px}
+.tl .ro{font-size:17px}
+.tl .no{font-size:14px;color:var(--muted);text-align:right;padding-right:0}
+.tl tr.now .yr,.tl tr.now .co{color:var(--accent)}
+.tl .no.hot{color:var(--accent)}
+.tl-wrap{overflow-x:auto}
+@media (max-width:760px){
+  .tl,.tl tbody,.tl tr,.tl td{display:block}
+  .tl tr{border-top:1px solid var(--line);padding-block:16px}
+  .tl tr:last-child{border-bottom:1px solid var(--line)}
+  .tl td{border:0!important;padding:2px 0;text-align:left!important}
+  .tl .yr{width:auto;font-size:16px}
+  .tl .no:empty{display:none}
+}
+
+/* NAKATOMI (light band) */
+.light{background:var(--paper);color:var(--ink)}
+.light .wrap{padding-block:96px}
+.nk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.nk h2{font-size:clamp(40px,5.4vw,76px);margin-top:16px}
+.nk p{font-size:18px;max-width:52ch;margin:24px 0 0}
+.nk a.more{display:inline-block;margin-top:24px}
+.svc{display:grid;gap:18px}
+.svc article{background:var(--white);border-radius:20px;padding:30px 34px}
+.svc article p{margin:12px 0 0;font-size:21px;font-weight:500;letter-spacing:-.01em;line-height:1.35;max-width:none}
+@media (max-width:860px){.nk{grid-template-columns:1fr}}
+
+/* AWARDS */
+.awards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:28px}
+.award{background:var(--surface);border-radius:20px;padding:26px 26px 24px;min-width:0}
+.award b{display:block;font-size:30px;color:var(--accent);letter-spacing:-.02em}
+.award strong{display:block;font-size:19px;margin-top:8px}
+.award span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+@media (max-width:900px){.awards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* CONTACT */
+.contact h2{font-size:clamp(40px,11vw,158px);margin-top:20px;white-space:nowrap}
+.contacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:48px}
+.contacts div{min-width:0}
+.contacts .v{display:block;font-size:22px;font-weight:600;margin-top:8px;overflow-wrap:anywhere}
+.contacts a.v{color:var(--accent);text-underline-offset:5px}
+.copy{font:inherit;font-size:13px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-top:10px;cursor:pointer}
+@media (max-width:860px){.contacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.contacts{grid-template-columns:1fr}}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:28px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer a{text-decoration:none}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">MANUEL TORRES GERE</a>
+    <ul>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#nakatomi">Nakatomi</a></li>
+      <li><a href="#reconocimientos">Reconocimientos</a></li>
+    </ul>
+    <a class="btn primary small" href="#contacto">Conversemos</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="label">Portfolio 2026 · Buenos Aires</p>
+          <h1 class="display">MANUEL<br>TORRES GERE</h1>
+          <p class="lead">Consultor en Comunicación Digital. Más de una década creando campañas para marcas, gobierno y productoras: estrategia, creatividad y gestión de equipos.</p>
+          <div class="cta">
+            <a class="btn primary" href="#trabajos">Ver trabajos ↓</a>
+            <a class="btn ghost" href="https://www.figma.com/proto/jPDRtBRDw6Kbua1VQwrrGN/Portfolio-Manu-Torres-2026?node-id=5-2&starting-point-node-id=5%3A2&scaling=contain&hide-ui=1" target="_blank" rel="noopener">Ver portfolio completo ↗</a>
+          </div>
+        </div>
+        <figure class="portrait">
+          <img src="img/cover.jpg" alt="Retrato de Manuel Torres Gere" width="1000" height="1308">
+          <figcaption>Photoshoot Lanzallamas, 2022</figcaption>
+        </figure>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>+15</b><span>años en comunicación digital</span></div>
+        <div class="fact"><b>Shortlist</b><span>Cannes Lions 2013</span></div>
+        <div class="fact"><b>Cofundador</b><span>Nakatomi Agency</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="Servicios">
+    <div class="track" aria-hidden="true">
+      <span>ESTRATEGIA DE MARKETING</span><span class="star">✺</span><span>PUBLICIDAD</span><span class="star">✺</span><span>MARKETING DIGITAL</span><span class="star">✺</span><span>CONSULTORÍA POLÍTICA</span><span class="star">✺</span><span>GESTIÓN DE PROYECTOS</span><span class="star">✺</span><span>PLANIFICACIÓN ESTRATÉGICA</span><span class="star">✺</span>
+      <span>ESTRATEGIA DE MARKETING</span><span class="star">✺</span><span>PUBLICIDAD</span><span class="star">✺</span><span>MARKETING DIGITAL</span><span class="star">✺</span><span>CONSULTORÍA POLÍTICA</span><span class="star">✺</span><span>GESTIÓN DE PROYECTOS</span><span class="star">✺</span><span>PLANIFICACIÓN ESTRATÉGICA</span><span class="star">✺</span>
+    </div>
+  </div>
+
+  <section class="block" id="sobre-mi">
+    <div class="wrap stack">
+      <div>
+        <p class="label">Sobre mí</p>
+        <p class="statement">Empecé en 2012 escribiéndole a David Droga. Desde entonces pasé por agencias, productoras y el Gobierno de la Ciudad, y cofundé mi propia consultora.</p>
+      </div>
+      <div>
+        <p class="label muted">Qué hago</p>
+        <p class="pillars">Comunicación política<i>•</i>Marcas<i>•</i>Estrategia digital</p>
+      </div>
+      <div>
+        <p class="label muted">Marcas con las que trabajé</p>
+        <div class="brands">
+          <p><em>Desde agencias</em>Sony · YPF · Disney · Heineken · Techint · PedidosYa · Buenbit · Cinzano · Brubank</p>
+          <p><em>Sector público</em>Gobierno de la Ciudad de Buenos Aires</p>
+          <p><em>Con Nakatomi</em>Real estate · Cine (productoras y FIC.UBA) · Fintech en España (HelpMyCash)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="trabajos" style="padding-top:0">
+    <div class="wrap">
+      <hr class="rule">
+      <p class="label" style="margin-top:40px">01 · Trabajos</p>
+      <div class="sec-head" style="margin-top:12px">
+        <h2 class="display">Trabajos<br>destacados</h2>
+        <div class="filters" role="group" aria-label="Filtrar trabajos">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">Todos</button>
+          <button class="chip" type="button" data-f="marcas" aria-pressed="false">Marcas</button>
+          <button class="chip" type="button" data-f="gobierno" aria-pressed="false">Gobierno</button>
+          <button class="chip" type="button" data-f="cine" aria-pressed="false">Cine</button>
+          <button class="chip" type="button" data-f="premios" aria-pressed="false">Premios</button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="marcas" style="display:block">
+        <div class="featured">
+          <img src="img/sv_kv.jpg" alt="Afiches y producto de la campaña Semana del Vermú de Cinzano" width="1800" height="1012">
+          <div class="over">
+            <div>
+              <p class="label">Destacado · Cinzano · Febrero (ex Mutato) · 2024</p>
+              <h3>Semana del Vermú &amp; Haciendo Clásicos</h3>
+            </div>
+            <span class="role">Director de Proyectos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card" data-cat="marcas">
+          <a class="thumb" href="https://www.youtube.com/watch?v=FkffW9BJR7M" target="_blank" rel="noopener"><img src="img/buenbit.jpg" alt="Serie El Camino del Buenbitero" loading="lazy"></a>
+          <p class="label">Buenbit · Lanzallamas · 2022</p>
+          <h3>El Camino del Buenbitero</h3>
+          <p>Serie-snack gamificada para redes sobre finanzas personales y cripto.</p>
+          <a class="more" href="https://www.youtube.com/watch?v=FkffW9BJR7M" target="_blank" rel="noopener">Ver caso ↗</a>
+        </article>
+        <article class="card" data-cat="marcas">
+          <a class="thumb" href="https://www.youtube.com/watch?v=rgvmI0uCBwM" target="_blank" rel="noopener"><img src="img/pya.jpg" alt="Campaña Detrás de cada pedido de PedidosYa" loading="lazy"></a>
+          <p class="label">PedidosYa · Lanzallamas · 2021–22</p>
+          <h3>Detrás de cada pedido</h3>
+          <p>Delivery oficial de la Selección Uruguaya: Copa América 2021 y previa de Qatar 2022.</p>
+          <a class="more" href="https://www.youtube.com/watch?v=rgvmI0uCBwM" target="_blank" rel="noopener">Ver caso ↗</a>
+        </article>
+        <article class="card" data-cat="gobierno">
+          <div class="thumb"><img src="img/obelisco.jpg" alt="Cobertura desde el Obelisco para @buenosaires" style="object-position:center 22%" loading="lazy"></div>
+          <p class="label">GCBA · 2017–2021 · 2022–2023</p>
+          <h3>@buenosaires</h3>
+          <p>Contenido digital, coberturas y transmisiones en vivo para la cuenta oficial de la Ciudad.</p>
+        </article>
+        <article class="card" data-cat="gobierno">
+          <a class="thumb" href="https://www.youtube.com/watch?v=X2exn1qn9qc" target="_blank" rel="noopener"><img src="img/barrio31.jpg" alt="Vista aérea del Barrio Padre Carlos Mugica" loading="lazy"></a>
+          <p class="label">SECISyU · GCBA · 2017–2018</p>
+          <h3>Integración Barrio Mugica</h3>
+          <p>Campañas en Meta Ads para la integración social y urbana del Barrio 31.</p>
+          <a class="more" href="https://www.youtube.com/watch?v=X2exn1qn9qc" target="_blank" rel="noopener">Ver caso ↗</a>
+        </article>
+        <article class="card" data-cat="cine">
+          <a class="thumb" href="https://www.youtube.com/watch?v=XLb0bwQM5hk" target="_blank" rel="noopener"><img src="img/fic.jpg" alt="Afiche del FIC.UBA en el hall de la Facultad" loading="lazy"></a>
+          <p class="label">FIC.UBA · Nakatomi · 2023</p>
+          <h3>1° Festival de Cine de la UBA</h3>
+          <p>Campaña en Meta Ads en los 40 años de democracia.</p>
+          <a class="more" href="https://www.youtube.com/watch?v=XLb0bwQM5hk" target="_blank" rel="noopener">Ver caso ↗</a>
+        </article>
+        <article class="card" data-cat="premios">
+          <a class="thumb" href="http://bit.ly/2p05rzl" target="_blank" rel="noopener"><img src="img/caminito.jpg" alt="Sitio DrogaGiveMe5.com" loading="lazy"></a>
+          <p class="label">Underground Ad School · 2012</p>
+          <h3>Droga Give Me 5</h3>
+          <p>Shortlist Cannes Lions · Oro Ads of the World · Plata Diente · Bronce El Ojo.</p>
+          <a class="more" href="http://bit.ly/2p05rzl" target="_blank" rel="noopener">Ver caso ↗</a>
+        </article>
+      </div>
+
+      <div class="films card" data-cat="cine" style="display:block">
+        <p class="label">Estrenos de cine y series · Nakatomi</p>
+        <div class="film-row">
+          <div class="film"><img src="img/dry.jpg" alt="Dry Martina" loading="lazy"><div><b>Dry Martina</b><a href="https://www.youtube.com/watch?v=ORm3Ibxk7w4" target="_blank" rel="noopener">Tráiler ↗</a></div></div>
+          <div class="film"><img src="img/boya.jpg" alt="La Boya" loading="lazy"><div><b>La Boya</b><a href="https://www.youtube.com/watch?v=nO8VsfinH3A" target="_blank" rel="noopener">Tráiler ↗</a></div></div>
+          <div class="film"><img src="img/alicia.jpg" alt="Alicia" loading="lazy"><div><b>Alicia</b><a href="https://www.youtube.com/watch?v=RcQMJNJJcBk" target="_blank" rel="noopener">Tráiler ↗</a></div></div>
+          <div class="film"><img src="img/pibxs.jpg" alt="Pibxs en acción" loading="lazy"><div><b>Pibxs en acción</b><a href="https://www.youtube.com/watch?v=-xXGQNdXg_c" target="_blank" rel="noopener">Tráiler ↗</a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="trayectoria" style="padding-top:0">
+    <div class="wrap">
+      <hr class="rule">
+      <p class="label" style="margin-top:40px">02 · Trayectoria</p>
+      <h2 class="display" style="font-size:clamp(48px,7.6vw,110px);margin-top:12px">Trayectoria</h2>
+      <div class="tl-wrap">
+        <table class="tl">
+          <tbody>
+            <tr class="now"><td class="yr">2025</td><td class="co">Mayéutica<small>(ex Puzzle Digital Agency)</small></td><td class="ro">Líder de Operación + Director de Cuentas</td><td class="no">Grupo Trasa</td></tr>
+            <tr><td class="yr">2024</td><td class="co">Febrero<small>(ex Mutato, Grupo WPP)</small></td><td class="ro">Director de Proyectos</td><td class="no">Hoy parte de MADE (México)</td></tr>
+            <tr><td class="yr">2021</td><td class="co">Lanzallamas</td><td class="ro">Creative Manager</td><td class="no"></td></tr>
+            <tr><td class="yr">2017</td><td class="co">GCBA</td><td class="ro">Comunicación Digital · @buenosaires</td><td class="no">2017 — 2021 · 2022 — 2023</td></tr>
+            <tr><td class="yr">2016</td><td class="co">Nakatomi Agency<small>(ex Conexión Cuática)</small></td><td class="ro">Cofundador + Consultor Digital</td><td class="no hot">Consultora propia · en actividad</td></tr>
+            <tr><td class="yr">2015</td><td class="co">Interactivity</td><td class="ro">Content Manager + Blogger</td><td class="no">Freelance 2013 — 2014 · full time desde 2015</td></tr>
+            <tr><td class="yr">2014</td><td class="co">UV Latam</td><td class="ro">Copywriter + Community Manager</td><td class="no"></td></tr>
+            <tr><td class="yr">2013</td><td class="co">Global Mind<small>(hoy Dentsu)</small></td><td class="ro">Copywriter + Community Manager</td><td class="no"></td></tr>
+            <tr><td class="yr">2012</td><td class="co">Droga Give Me 5</td><td class="ro">Underground Ad School</td><td class="no">Shortlist Cannes Lions · El Ojo · Diente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="nakatomi">
+    <div class="wrap">
+      <div class="nk">
+        <div>
+          <p class="label">03 · Nakatomi Agency</p>
+          <h2 class="display">Cofundador +<br>Consultor Digital</h2>
+          <p>Nakatomi es la consultora que cofundé en 2016 como Conexión Cuática, junto a Leandro Baca Castex y Jaime Vanegas, excompañeros de Underground Ad School. En 2024 la relanzamos con un foco claro: acompañar a desarrolladoras e inmobiliarias del primer clic a la primera reunión.</p>
+          <p>Creemos que las mejores estrategias no nacen de sumar servicios, sino de conectar cada decisión bajo un mismo sistema.</p>
+          <a class="more" href="https://nakatomiagency.com/" target="_blank" rel="noopener">nakatomiagency.com ↗</a>
+        </div>
+        <div class="svc">
+          <article><p class="label">01 · Growth marketing</p><p>Una estrategia de adquisición que va más allá de la pauta: que cada peso invertido trabaje con un objetivo claro.</p></article>
+          <article><p class="label">02 · Adquisición comercial</p><p>Que ningún lead se pierda: agentes de IA, automatizaciones y CRM para que el equipo comercial reciba contactos calificados y con contexto.</p></article>
+          <article><p class="label">03 · Presencia digital</p><p>Todo el ecosistema visual del proyecto: landings que convierten, renders con IA y piezas para campaña y WhatsApp.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="reconocimientos">
+    <div class="wrap">
+      <p class="label">04 · Reconocimientos · Droga Give Me 5</p>
+      <div class="awards">
+        <div class="award"><b>Shortlist</b><strong>Cannes Lions 2013</strong><span>Direct Lions</span></div>
+        <div class="award"><b>Oro</b><strong>Ads of the World</strong><span>Best Online, 2013</span></div>
+        <div class="award"><b>Plata</b><strong>Diente 13</strong><span>Categoría Sitio Web</span></div>
+        <div class="award"><b>Bronce</b><strong>El Ojo de Iberoamérica</strong><span>Sitios Web</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contacto" style="padding-top:0">
+    <div class="wrap">
+      <hr class="rule">
+      <p class="label" style="margin-top:40px">05 · Contacto</p>
+      <h2 class="display">CONVERSEMOS</h2>
+      <div class="contacts">
+        <div><p class="label muted">Teléfono</p><a class="v" id="tel" href="tel:+5491122695840">+54 9 11 2269 5840</a><button class="copy" type="button" data-copy="tel">Copiar</button></div>
+        <div><p class="label muted">Email</p><a class="v" id="mail" href="mailto:mtgere@gmail.com">mtgere@gmail.com</a><button class="copy" type="button" data-copy="mail">Copiar</button></div>
+        <div><p class="label muted">Web</p><a class="v" href="https://nakatomiagency.com/" target="_blank" rel="noopener">nakatomiagency.com</a></div>
+        <div><p class="label muted">Instagram</p><a class="v" href="https://www.instagram.com/nakatomiagency/" target="_blank" rel="noopener">@nakatomiagency</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Manuel Torres Gere</span><a href="#top">Volver arriba ↑</a></div>
+</footer>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('.chip');
+  var items=document.querySelectorAll('#trabajos .card');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    var f=c.getAttribute('data-f');
+    chips.forEach(function(x){x.setAttribute('aria-pressed',String(x===c))});
+    items.forEach(function(it){it.hidden=!(f==='all'||it.getAttribute('data-cat')===f)});
+  })});
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.getAttribute('data-copy'));var txt=el.textContent.trim();
+    var done=function(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Seleccionado';setTimeout(function(){b.textContent='Copiar'},1600)};
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  })});
+})();
+</script>
+
+</body>
+</html>
