@@ -61,8 +61,10 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
   .nav ul a{display:block;padding:14px 0;font-size:20px;color:var(--fg);border-top:1px solid var(--line)}
   .nav ul li:first-child a{border-top:0}
   .nav .wrap{position:relative}
-  .to-top.show{display:flex}
 }
+.to-top.show{display:flex}
+.to-top:hover{transform:translateY(-2px)}
+.to-top{transition:transform .15s ease}
 @media (max-width:480px){.nav-actions .btn{display:none}}
 
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:600;font-size:16px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
