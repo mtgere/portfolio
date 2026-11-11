@@ -203,7 +203,8 @@ section.block{padding-block:88px}
 .contacts .v{display:block;font-size:22px;font-weight:600;margin-top:8px;overflow-wrap:anywhere}
 .contacts a.v{color:var(--accent);text-underline-offset:5px}
 .copy{font:inherit;font-size:13px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-top:10px;cursor:pointer}
-@media (max-width:860px){.contacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1101px){.contacts{grid-template-columns:repeat(4,auto);justify-content:space-between}.contacts .v{white-space:nowrap;font-size:clamp(18px,1.55vw,22px)}}
+@media (max-width:1100px){.contacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.contacts{grid-template-columns:1fr}}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:28px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
 footer a{text-decoration:none}
