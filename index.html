@@ -77,6 +77,10 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .btn.ghost:hover{border-color:var(--fg)}
 .btn.small{padding:10px 18px;font-size:15px}
 
+.nav{position:sticky}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none}
+.progress span{display:block;height:100%;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+
 /* HERO */
 .hero{padding-block:64px 40px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px;align-items:start}
@@ -214,6 +218,7 @@ footer a{text-decoration:none}
 
 
 <header class="nav">
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
   <div class="wrap">
     <a class="brand" href="#top">MANUEL TORRES GERE</a>
     <ul id="nav-links">
@@ -445,6 +450,8 @@ footer a{text-decoration:none}
 
 <script>
 (function(){
+  var pb=document.getElementById('progress-bar');
+  if(pb){var upd=function(){var h=document.documentElement.scrollHeight-window.innerHeight;pb.style.transform='scaleX('+(h>0?Math.min(1,window.scrollY/h):0)+')'};window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();}
   var mb=document.getElementById('menu-btn'),nl=document.getElementById('nav-links');
   if(mb&&nl){mb.addEventListener('click',function(){var o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));mb.textContent=o?'Cerrar':'Menú'});
     nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menú'})});}
